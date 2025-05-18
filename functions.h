@@ -12,6 +12,7 @@
 #define LARGURA 1200
 #define ALTURA 860
 
+
 void ShowTopBar(int lifes, int level, int score, int sword);
 
 int menu(int gameInProgress);

@@ -9,8 +9,8 @@
 #define LARGURA 1200
 #define ALTURA 860
 
-Image img_sword = LoadImage("sword.png");
-Texture2D swordTexture = LoadTextureFromImage(img_sword);
+Image img_sword;
+Texture2D swordTexture;
 
 void ShowTopBar(int lifes, int level, int score, int sword)
 {
@@ -106,7 +106,9 @@ int StartGame()
     InitWindow(LARGURA, ALTURA, "Quadrado"); //Inicializa janela, com certo tamanho e titulo
     SetTargetFPS(30);// Ajusta a janela para 60 frames por segundo
 
+    img_sword = LoadImage("../assets/sword.png");
     ImageResize(&img_sword, 50, 50);
+    swordTexture = LoadTextureFromImage(img_sword);
     srand(time(NULL));
     for(i = 0; i < 60; i++){
         for(j = 0; j < 40; j++){

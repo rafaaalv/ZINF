@@ -9,26 +9,28 @@
 #define LARGURA 1200
 #define ALTURA 860
 
+Image img_sword;
+Texture2D swordTexture;
 
 int main()
 {
     int respostaMenu;
     InitWindow(LARGURA, ALTURA, "ZINF");
     SetTargetFPS(30);
-    while (!WindowShouldClose())
+    img_sword = LoadImage("sword.png");
+    ImageResize(&img_sword, 50, 50);
+    swordTexture = LoadTextureFromImage(img_sword);
+    respostaMenu = menu(0);
+    if(respostaMenu == 2)
     {
-        respostaMenu = menu(0);
-        if(respostaMenu == 2)
-        {
-            CloseWindow(); //Fecha jogo
-        } else if(respostaMenu == 0){
-            if(StartGame() == 0){//Incia Jogo
-                CloseWindow();
-            }
-        } else {
-            //Mostra Scoreboard
+        return 0; //Fecha jogo
+    } else if(respostaMenu == 0){
+        if(StartGame() == 0){//Incia Jogo
+            return 0;
         }
-
+    } else {
+        //Mostra Scoreboard
     }
+
     return 0;
 }
